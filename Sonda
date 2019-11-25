@@ -1,0 +1,138 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Desafio_Cogtive_2
+{
+    class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            int X = 0, Y = 0, Comando;
+            string Posicao = "Norte";
+            string tmp, tmp2;//temporário
+
+            Console.WriteLine("A posição atual da sonda é: "+ X + ", " + Y + ", " + Posicao); //Informar posição atual
+
+            Console.WriteLine("Qual comando você deseja realizar? \n1)Avançar a sonda (Anda uma casa) \n2)Virar a sonda (Vira a direita)"); //menu de comandos
+            tmp = Console.ReadLine();
+            Comando = int.Parse(tmp);
+
+
+            if (Comando == 1) 
+            {
+                if(Posicao == "Norte")
+                {
+                  X = X + 1;
+                };
+
+                if(Posicao == "Sul")
+                {
+                    X = X - 1;
+                };
+
+                if(Posicao=="Oeste")
+                {
+                    Y = Y - 1;
+                };
+                if (Posicao == "Leste")
+                {
+                    Y = Y + 1;
+                };
+            }; //Instrução de como a sonda deve agir dependendo da posição (x,y)
+            if (Comando == 2)
+            {
+                if (Posicao == "Norte")
+                {
+                    Posicao = "Leste";
+                }
+                else {
+                    if (Posicao == "Leste")
+                    {
+                        Posicao = "Sul";
+                    } 
+                else {
+                    if (Posicao == "Sul")
+                    {
+                        Posicao = "Oeste";
+                    } 
+                 else {
+                     if (Posicao == "Oeste")
+                     {
+                         Posicao = "Norte";
+                     }
+                      }
+                     }       
+                }
+            }; //Instrução de como a sonda deve agir dependendo da posição (direção)
+
+            Console.WriteLine("A posição atual da sonda é: " + X + ", " + Y + ", " + Posicao);
+
+            Console.WriteLine("Deseja continuar? \n1)Sim \n2)Não");
+            tmp2 = Console.ReadLine();
+
+            while(tmp2 == "1") //estrutura de repetição para continuar até que o usuário não queira mais
+            {
+                Console.Clear();
+                Console.WriteLine("A posição atual da sonda é: " + X + ", " + Y + ", " + Posicao);
+                Console.WriteLine("\nQual comando você deseja realizar? \n1)Avançar a sonda (Anda uma casa) \n2)Virar a sonda (Vira a direita)");
+                tmp = Console.ReadLine();
+                Comando = int.Parse(tmp);
+
+
+                if (Comando == 1)
+                {
+                    if (Posicao == "Norte")
+                    {
+                        X = X + 1;
+                    };
+
+                    if (Posicao == "Sul")
+                    {
+                        X = X - 1;
+                    };
+
+                    if (Posicao == "Oeste")
+                    {
+                        Y = Y - 1;
+                    };
+                    if (Posicao == "Leste")
+                    {
+                        Y = Y + 1;
+                    };
+                };
+                if (Comando == 2)
+                {
+                    if (Posicao == "Norte")
+                    {
+                        Posicao = "Leste";
+                    }
+                    else
+                    {
+                        if (Posicao == "Leste")
+                        {
+                            Posicao = "Sul";
+                        }
+                        else
+                        {
+                            if (Posicao == "Sul")
+                            {
+                                Posicao = "Oeste";
+                            }
+                            else
+                            {
+                                if (Posicao == "Oeste")
+                                {
+                                    Posicao = "Norte";
+                                }
+                            }
+                        }
+                    }
+                };
+            }
+        }
+    }
+}
